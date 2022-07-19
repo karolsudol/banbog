@@ -110,3 +110,4 @@ contract Payment {
     );
     subscription.nextPayment = subscription.nextPayment + plan.frequency;
   }
+}
