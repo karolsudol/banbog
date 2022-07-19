@@ -125,7 +125,7 @@ contract Payment {
 
 
   /**
- * @notice anyone can call the pay method
+ * @notice anyone can call the pay method, call this func to repay missed payment -> catch up -> subcription as normal
  * @param planId of the existing plan by pointing to its id
  */
   function pay(address subscriber, uint planId) external {
