@@ -57,7 +57,7 @@ interface PaymentStructures {
 }
 
 /**
- * @title The RecurringPayments contract
+ * @title RecurringPayments
  * @notice 
  * @notice 
  */
