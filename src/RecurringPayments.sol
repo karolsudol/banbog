@@ -7,12 +7,13 @@ import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 
 
 /**
- * @title The RecurringPayments contract
+ * @title PaymentStructures
  * @notice 
  * @notice 
  */
 
 interface PaymentStructures {
+
   struct PaymentSchedule {
     uint256 totalAmount;
     uint256 amountSent;
@@ -55,6 +56,11 @@ interface PaymentStructures {
   event CallerFeeChanged(uint256 oldBips, uint256 newBips);
 }
 
+/**
+ * @title The RecurringPayments contract
+ * @notice 
+ * @notice 
+ */
 contract RecurringPayments is PaymentStructures, Ownable {
   uint256 planCounter;
   mapping(uint256 => PaymentSchedule) schedules;

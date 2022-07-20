@@ -10,6 +10,7 @@ interface Vm {
     function prank(address addr) external;
 }
 
+
 contract RecurringPaymentsTest is DSTest {
     RecurringPayments payments;
     ERC20PresetFixedSupply token;
