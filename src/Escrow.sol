@@ -33,6 +33,16 @@ contract Escrow is Ownable {
 
     }
 
+    /**
+     * @notice  it will lock an amount of ERC20 tokens in the contract for an arbitrary time.
+
+     * @param _token An ERC20 Token
+     * @param _withdrawer The Address which can withdraw
+     * @param _amount Amount the ERC20 Token
+     * @param _unlockTimestamp When to unlock deposit
+    
+     * @return _id - id of the request
+     */
     function lockTokens(IERC20 _token, address _withdrawer, uint256 _amount, uint256 _unlockTimestamp) external returns (uint256 _id) {
         require(_amount > 500, 'Token amount too low!');
         require(_unlockTimestamp < 10000000000, 'Unlock timestamp is not in seconds!');
@@ -55,6 +65,11 @@ contract Escrow is Ownable {
         return _id;
     }
 
+    /**
+     * @notice  The withdrawTokens function accepts an address and checks it's existence as a _withdrawer in our Structure. 
+     * The function also checks if funds are past the _unlockTimestamp.
+     * @param _id - id of the request
+     */
     function withdrawTokens(uint256 _id) external {
         require(block.timestamp >= lockedToken[_id].unlockTimestamp, 'Tokens are still locked!');
         require(msg.sender == lockedToken[_id].withdrawer, 'You are not the withdrawer!');
